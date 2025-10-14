@@ -1,0 +1,201 @@
+/* style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2.0rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  background-color: #3C5A73;
+  letter-spacing: 1px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+
+header {
+font-family: monospace, 'Courier New', Courier, monospace;
+font-size: 1.2rem;
+display: grid;
+grid-template-columns: 1fr auto 1fr;
+align-items: center;
+padding: 2rem 2rem;
+position: sticky;
+top: 0;
+z-index: 10;
+background: rgba(0, 38, 77, 0.7);
+backdrop-filter: blur(8px);
+box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.name {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: white;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  justify-self: start;
+}
+
+
+
+/* === Navbar === */
+
+nav {
+  justify-self: center;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #00bcd4;
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+nav a:hover {
+  color: #00bcd4;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active-link {
+  color: #00bcd4;
+}
+
+nav a.active-link::after {
+  width: 100%;
+}
+
+
+
+.contact {
+  font-size: 0.95rem;
+  background: #487da5;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  color: white;
+  transition: background 0.3s ease;
+  justify-self: end;
+}
+
+.contact:hover {
+  background: #0097a7;
+}
+
+/* === Page Sections === */
+main {
+  font-family: space mono, monospace;
+  flex-grow: 1;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+section {
+  display: none;
+  max-width: 800px;
+  text-align: center;
+  animation: fadeIn 0.5s ease;
+}
+
+section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #00264D;
+  color: white;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.8;
+  opacity: 0.9;
+}
+
+.wave-background {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: -1; /* behind everything */
+  background: #3C5A73;
+}
+
+.waves {
+  position: absolute;
+  bottom: 0;
+  width: 200%;
+  height: 100%;
+  animation: waveMove 20s linear infinite;
+  opacity: 0.4;
+}
+
+@keyframes waveMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+
+.space-mono-regular {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.space-mono-bold {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.space-mono-regular-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.space-mono-bold-italic {
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  font-style: italic;
+}

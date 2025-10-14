@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Billy Vincini</title>
+  <link rel="stylesheet" href="style.css"></style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+  <header>
+    
+    <div class="name">Billy Vincini</div>
+    <nav>
+      <!--highlight home page on load -->
+      <a href="#" class="active-link" onclick="showPage('home')">Home</a>
+      <a href="#" onclick="showPage('about')">About</a>
+      <a href="#" onclick="showPage('portfolio')">Portfolio</a>
+      <a href="#" onclick="showPage('personal')">Personal</a>
+    </nav>
+    <a href="#" class="contact" onclick="showPage('contact')">Contact</a>
+  </header>
+  <div class="wave-background">
+    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#00264D" fill-opacity="0.6"
+        d="M0,160L60,176C120,192,240,224,360,234.7C480,245,600,235,720,208C840,181,960,139,1080,128C1200,117,1320,139,1380,149.3L1440,160L1440,320L0,320Z">
+      </path>
+      <path fill="#003B6F" fill-opacity="0.4"
+        d="M0,192L80,208C160,224,320,256,480,240C640,224,800,160,960,154.7C1120,149,1280,203,1360,229.3L1440,256L1440,320L0,320Z">
+      </path>
+      <path fill="#004C87" fill-opacity="0.3"
+        d="M0,224L100,213.3C200,203,400,181,600,176C800,171,1000,181,1200,197.3C1400,213,1600,235,1700,240L1800,245L1800,320L0,320Z">
+      </path>
+    </svg>
+  </div>
+
+  <main>
+    <section id="home" class="active">
+      <h1>Hello There, I'm Billy</h1>
+      <p>Currently a student at Kent State University majoring in Computer Science concentrating in Cyber-Security</p>
+    </section>
+
+    <section id="about">
+      <h1>About Me</h1>
+      <p>Write a short bio here about who you are, what you do, and your interests.</p>
+    </section>
+
+    <section id="portfolio">
+      <h1>Portfolio</h1>
+      <p>Showcase your projects, artwork, or achievements here.</p>
+    </section>
+
+    <section id="personal">
+      <h1>Personal</h1>
+      <p>Include hobbies, thoughts, or anything personal you'd like to share.</p>
+    </section>
+
+    <section id="contact">
+      <h1>Contact Me</h1>
+      <p>Email: yourname@example.com</p>
+      <p>LinkedIn: <a href="#" target="_blank">Your Profile</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <!-- Can add links in the future here -->
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
