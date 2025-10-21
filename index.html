@@ -18,10 +18,10 @@
 
   <header class="site-header" role="banner">
     <div class="header-inner">
-      <a class="brand" href="#" aria-current="page" data-page="home">
+      <div class="brand" aria-hidden="false">
         <span class="brand-name">Billy Vincini</span>
         <span class="brand-sub">CS • Cyber-Security • Games • Music</span>
-      </a>
+      </div>
 
       <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
         <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
@@ -37,7 +37,8 @@
       </nav>
 
       <div class="header-cta">
-        <a class="contact-btn" href="mailto:brvincini.com">Contact</a>
+        <!-- becomes a page-nav control — same behavior as other links -->
+        <a class="contact-btn" href="#" data-page="contact">Contact</a>
       </div>
     </div>
   </header>
@@ -63,13 +64,32 @@
 
     <section id="about" class="page" tabindex="-1" aria-labelledby="about-heading">
       <h2 id="about-heading">About Me</h2>
-      <p>I’m a Computer Science student at Kent State University specializing in Cybersecurity. I love building creative and secure technical projects—whether it’s designing indie games in Unity, developing tools in various programming languages, or composing music.</p>
-      <p>When I’m not coding, I’m usually making music, collaborating on side projects, or publishing small experiments on Itch.io and YouTube.</p>
+      <div style="display:grid; grid-template-columns: 1fr 320px; gap:1rem; align-items:start;">
+        <div>
+          <p>I’m Billy — a Kent State Computer Science student specializing in cybersecurity and indie game development. I design, build, and ship small games, tools, and soundtracks — usually experimenting with procedural content and secure-by-design code.</p>
+          <p>My current focus: building compact, polished prototypes while learning secure systems design and publishing small games and music on itch.io and YouTube.</p>
+
+          <h3 style="margin-top:.75rem;">Projects</h3>
+          <ul>
+            <li><a href="#" data-page="projects">Git Repos</a></li>
+            <li><a href="#" data-page="personal">Unity prototypes & games</a></li>
+            <li><a href="#" data-page="personal">My music</a></li>
+            
+          </ul>
+        </div>
+
+        <aside style="background:var(--card-bg); padding:1rem; border-radius:10px; border:1px solid rgba(255,255,255,0.03);">
+          <h4 style="margin:0 0 .5rem 0;">Skills & tools</h4>
+          <p class="muted" style="margin:0 0 .5rem 0;">Unity • C# • Python • C++ • Git • Linux • Audio production</p>
+          <p class="muted" style="margin:0 0 .5rem 0;">10+ years piano • composing game music</p>
+        </aside>
+      </div>
     </section>
+
 
     <section id="projects" class="page" tabindex="-1" aria-labelledby="projects-heading">
       <h2 id="projects-heading">GitHub Projects</h2>
-      <p class="section-sub">Automatically loaded from GitHub (public repos). Showing most recently updated.</p>
+      <p class="section-sub">Automatically loaded from my GitHub (public repos). Showing most recently updated.</p>
       <div id="repo-list" class="repo-grid" aria-live="polite">Loading projects…</div>
     </section>
 
@@ -122,10 +142,58 @@
     </section>
 
     <section id="contact" class="page" tabindex="-1" aria-labelledby="contact-heading" hidden>
-      <h2 id="contact-heading">Contact</h2>
-      <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
-      <p>LinkedIn: <a href="#" target="_blank" rel="noopener noreferrer">Your Profile</a></p>
-    </section>
+  <h2 id="contact-heading">Contact</h2>
+
+  <p class="section-desc">Whether it’s a collaboration, a job opportunity, or a quick hello — send a short note. Below are a few ways to reach me and a short project brief form you can use to outline your idea.</p>
+
+  <div class="contact-grid">
+    <!-- left column: contact methods & availability -->
+    <div class="contact-card">
+      <h3>How to reach me</h3>
+      <p><strong>Email</strong>: <a href="mailto:brvincini@gmail.com">brvincini@gmail.com</a></p>
+      <p><strong>GitHub</strong>: <a href="https://github.com/bvincDev" target="_blank" rel="noopener noreferrer">github.com/bvincDev</a></p>
+
+      <ul style="margin-top:.5rem; color:var(--muted);"><strong>Privacy:</strong> I won’t share your email or message publicly.
+      </ul>
+    </div>
+
+    <!-- right column: contact form -->
+    <form id="contact-form" class="contact-form" aria-label="Contact form">
+      <h3>Project brief / quick message</h3>
+
+      <label for="c-name">Your name</label>
+      <input id="c-name" name="name" placeholder="First and last name" required>
+
+      <label for="c-email">Your email</label>
+      <input id="c-email" name="email" type="email" placeholder="you@example.com" required>
+
+      <label for="c-subject">Subject (optional)</label>
+      <input id="c-subject" name="subject" placeholder="e.g. inquiry about collaboration">
+
+      <label for="c-message">Message</label>
+      <textarea id="c-message" name="message" rows="6" placeholder="Short description of your project, timeline, and what you need" required></textarea>
+
+      <label style="margin-top:.5rem; font-size:.9rem;">
+        <input type="checkbox" id="c-consent" name="consent" checked>
+        I consent to having this information used to contact me (privacy respected).
+      </label>
+
+      <div style="display:flex;gap:.6rem;margin-top:.8rem;align-items:center;">
+        <button class="btn" type="submit">Send</button>
+        <button class="btn ghost" type="reset">Reset</button>
+        <span id="contact-note" class="muted" style="margin-left:auto; font-size:.9rem;">Or email <a href="mailto:brvincini@gmail.com">brvincini@gmail.com</a></span>
+      </div>
+
+      <div id="contact-success" role="status" aria-live="polite" style="display:none; margin-top:.75rem; padding:.6rem; border-radius:8px; background: rgba(79,179,198,0.08); color: #e9fbfd; border:1px solid rgba(79,179,198,0.12);">
+        Opening your email client — if nothing happened, copy the email shown above or try again.
+      </div>
+
+      <p class="muted" style="margin-top:.8rem; font-size:.85rem;">Privacy: Your message will only be used to reply and won't be published or shared.</p>
+    </form>
+  </div>
+</section>
+
+    
   </main>
 
   <footer class="site-footer" role="contentinfo">

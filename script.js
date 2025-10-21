@@ -1,6 +1,6 @@
 // script.js — accessible navigation and GitHub repo loader
 
-const username = "bvincDev"; // change if needed
+const username = "bvincDev"; // git
 let reposLoaded = false;
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -36,11 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-function showPage(pageId){
+function showPage(pageId) {
   // hide all pages
   document.querySelectorAll('.page').forEach(p => {
     p.classList.remove('active');
-    p.setAttribute('hidden', ''); // helps screen readers
+    p.setAttribute('hidden', '');
   });
 
   const page = document.getElementById(pageId);
@@ -48,15 +48,16 @@ function showPage(pageId){
   page.classList.add('active');
   page.removeAttribute('hidden');
 
-  // focus target for accessibility
-  page.focus();
-
-  // nav active link
+  // nav highlight logic...
+  document.querySelectorAll('[data-page]').forEach(el => el.removeAttribute('aria-current'));
   document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
   const link = Array.from(document.querySelectorAll('.nav-link')).find(a => a.dataset.page === pageId);
-  if (link) link.classList.add('active');
+  if (link) {
+    link.classList.add('active');
+    link.setAttribute('aria-current', 'page');
+  }
 
-  // load repos lazily when opening projects
+  // ✅ Load repos only once when visiting Projects
   if (pageId === 'projects' && !reposLoaded) {
     loadGitHubRepos();
     reposLoaded = true;
