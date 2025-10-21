@@ -57,7 +57,7 @@ function showPage(pageId) {
     link.setAttribute('aria-current', 'page');
   }
 
-  // ✅ Load repos only once when visiting Projects
+  // Load repos only once when visiting Projects
   if (pageId === 'projects' && !reposLoaded) {
     loadGitHubRepos();
     reposLoaded = true;
