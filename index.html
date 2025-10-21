@@ -1,75 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Billy Vincini</title>
-  <link rel="stylesheet" href="style.css"></style>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Billy Vincini — Portfolio</title>
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Basic meta for social sharing (optional to extend) -->
+  <meta name="description" content="Billy Vincini — Computer Science student (Cybersecurity), indie games, music, and projects." />
 </head>
 <body>
 
-  <header>
-    
-    <div class="name">Billy Vincini</div>
-    <nav>
-      <!--highlight home page on load -->
-      <a href="#" class="active-link" onclick="showPage('home')">Home</a>
-      <a href="#" onclick="showPage('about')">About</a>
-      <a href="#" onclick="showPage('portfolio')">Portfolio</a>
-      <a href="#" onclick="showPage('personal')">Personal</a>
-    </nav>
-    <a href="#" class="contact" onclick="showPage('contact')">Contact</a>
+  <header class="site-header" role="banner">
+    <div class="header-inner">
+      <a class="brand" href="#" aria-current="page" data-page="home">
+        <span class="brand-name">Billy Vincini</span>
+        <span class="brand-sub">CS • Cyber-Security • Games • Music</span>
+      </a>
+
+      <button id="nav-toggle" class="nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
+        <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" role="navigation" aria-label="Main navigation">
+        <ul>
+          <li><a href="#" data-page="home" class="nav-link" aria-current="page">Home</a></li>
+          <li><a href="#" data-page="about" class="nav-link">About</a></li>
+          <li><a href="#" data-page="projects" class="nav-link">Projects</a></li>
+          <li><a href="#" data-page="personal" class="nav-link">Personal</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-cta">
+        <a class="contact-btn" href="mailto:brvincini.com">Contact</a>
+      </div>
+    </div>
   </header>
-  <div class="wave-background">
-    <svg class="waves" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
-      <path fill="#00264D" fill-opacity="0.6"
-        d="M0,160L60,176C120,192,240,224,360,234.7C480,245,600,235,720,208C840,181,960,139,1080,128C1200,117,1320,139,1380,149.3L1440,160L1440,320L0,320Z">
-      </path>
-      <path fill="#003B6F" fill-opacity="0.4"
-        d="M0,192L80,208C160,224,320,256,480,240C640,224,800,160,960,154.7C1120,149,1280,203,1360,229.3L1440,256L1440,320L0,320Z">
-      </path>
-      <path fill="#004C87" fill-opacity="0.3"
-        d="M0,224L100,213.3C200,203,400,181,600,176C800,171,1000,181,1200,197.3C1400,213,1600,235,1700,240L1800,245L1800,320L0,320Z">
-      </path>
+
+  <!-- Responsive wave footer-ish background (keeps behind content) -->
+  <div class="wave-background" aria-hidden="true">
+    <svg class="waves" viewBox="0 0 1440 320" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill="#00264D" d="M0,160L60,176C120,192,240,224,360,234.7C480,245,600,235,720,208C840,181,960,139,1080,128C1200,117,1320,139,1380,149.3L1440,160L1440,320L0,320Z" opacity="0.6"/>
+      <path fill="#003B6F" d="M0,192L80,208C160,224,320,256,480,240C640,224,800,160,960,154.7C1120,149,1280,203,1360,229.3L1440,256L1440,320L0,320Z" opacity="0.4"/>
+      <path fill="#004C87" d="M0,224L100,213.3C200,203,400,181,600,176C800,171,1000,181,1200,197.3C1400,213,1600,235,1700,240L1800,245L1800,320L0,320Z" opacity="0.3"/>
     </svg>
   </div>
 
-  <main>
-    <section id="home" class="active">
-      <h1>Hello There, I'm Billy</h1>
-      <p>Currently a student at Kent State University majoring in Computer Science concentrating in Cyber-Security</p>
+  <main id="main" class="main" role="main">
+    <section id="home" class="page active" tabindex="-1" aria-labelledby="home-heading">
+      <h1 id="home-heading">Hello there — I'm <span class="name-highlight">Billy</span></h1>
+      <p class="lead">Computer Science student at Kent State University (Cyber-Security). I build indie games, tools, and music — focusing on creative, secure engineering.</p>
+      <div class="home-actions">
+        <a class="btn" href="#" data-page="projects">View Projects</a>
+        <a class="btn ghost" href="#" data-page="personal">Personal Work</a>
+      </div>
     </section>
 
-    <section id="about">
-      <h1>About Me</h1>
-      <p>Write a short bio here about who you are, what you do, and your interests.</p>
+    <section id="about" class="page" tabindex="-1" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Me</h2>
+      <p>I’m a Computer Science student at Kent State University specializing in Cybersecurity. I love building creative and secure technical projects—whether it’s designing indie games in Unity, developing tools in various programming languages, or composing music.</p>
+      <p>When I’m not coding, I’m usually making music, collaborating on side projects, or publishing small experiments on Itch.io and YouTube.</p>
     </section>
 
-    <section id="portfolio">
-      <h1>Portfolio</h1>
-      <p>Showcase your projects, artwork, or achievements here.</p>
+    <section id="projects" class="page" tabindex="-1" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">GitHub Projects</h2>
+      <p class="section-sub">Automatically loaded from GitHub (public repos). Showing most recently updated.</p>
+      <div id="repo-list" class="repo-grid" aria-live="polite">Loading projects…</div>
     </section>
 
-    <section id="personal">
-      <h1>Personal</h1>
-      <p>Include hobbies, thoughts, or anything personal you'd like to share.</p>
+    <section id="personal" class="page" tabindex="-1" aria-labelledby="personal-heading">
+      <h2 id="personal-heading">Personal Projects & Interests</h2>
+
+      <div class="content-card">
+        <h3>Games on Itch.io</h3>
+        <p class="section-desc">Some indie projects I’ve released and showcased on Itch.io.</p>
+        <div class="embed-grid">
+          <!-- preserved your iframes, made responsive via CSS -->
+          <div class="embed-wrap">
+            <iframe src="https://itch.io/embed/2047990?bg_color=191919&amp;fg_color=dd5757&amp;link_color=ff0c0c&amp;border_color=cf3434" frameborder="0" loading="lazy" referrerpolicy="no-referrer" title="Luminescence on Itch"></iframe>
+          </div>
+          <div class="embed-wrap">
+            <iframe src="https://itch.io/embed/1691534?bg_color=09006a&amp;fg_color=fe162f&amp;link_color=cf0027&amp;border_color=bebebe" frameborder="0" loading="lazy" referrerpolicy="no-referrer" title="Simulation Active on Itch"></iframe>
+          </div>
+          <div class="embed-wrap">
+            <iframe src="https://itch.io/embed/2237785?bg_color=A9A9A9&amp;fg_color=000000&amp;link_color=c90a00&amp;border_color=be7d00" frameborder="0" loading="lazy" referrerpolicy="no-referrer" title="The Pirate's Cannon on Itch"></iframe>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-card">
+        <h3>YouTube & Music</h3>
+        <p class="section-desc">Piano covers, original compositions, and game music.</p>
+
+        <div class="yt-channel-card">
+          <a href="https://youtube.com/@pianobill" target="_blank" rel="noopener noreferrer" class="yt-card-link">
+            <img src="https://yt3.googleusercontent.com/SgWu1cDe-l4mQcGQbLUzoDka0UllYRk8FLwoiPQaa2LxgzFytHvqzk-cpH9OYoROo-t9twYkpQ=s160-c-k-c0x00ffffff-no-rj" alt="YouTube channel avatar">
+            <div>
+              <h4>@pianobill</h4>
+              <p class="muted">Piano covers, soundtracks, and original pieces.</p>
+            </div>
+          </a>
+        </div>
+
+        <div class="embed-grid">
+          <div class="embed-wrap">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/videoseries?list=PLtokZTeYrWR5oefT6L_ASgmzRBnLUgz_Z" frameborder="0" loading="lazy" title="YouTube playlist"></iframe>
+          </div>
+          <div class="embed-wrap">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/fwDWt6_guHE" frameborder="0" loading="lazy" title="YouTube video"></iframe>
+          </div>
+          <div class="embed-wrap">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/KkCiRgGBOpQ" frameborder="0" loading="lazy" title="YouTube video"></iframe>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section id="contact">
-      <h1>Contact Me</h1>
-      <p>Email: yourname@example.com</p>
-      <p>LinkedIn: <a href="#" target="_blank">Your Profile</a></p>
+    <section id="contact" class="page" tabindex="-1" aria-labelledby="contact-heading" hidden>
+      <h2 id="contact-heading">Contact</h2>
+      <p>Email: <a href="mailto:yourname@example.com">yourname@example.com</a></p>
+      <p>LinkedIn: <a href="#" target="_blank" rel="noopener noreferrer">Your Profile</a></p>
     </section>
   </main>
 
-  <footer>
-    <!-- Can add links in the future here -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="footer-inner">
+      <p>© 2025 <strong>Billy Vincini</strong>. Released under the <a href="LICENSE" target="_blank" rel="noopener noreferrer">MIT License</a>.</p>
+    </div>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
